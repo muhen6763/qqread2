@@ -41,9 +41,9 @@ jobs:
         run: |
           node qqread.js
         env:
-            qqreadheaderVal: ${{ secrets.qqreadheaderVal }}
-            qqreadtimeurlVal: ${{ secrets.qqreadtimeurlVal }}
-            qqreadtimeheaderVal: ${{ secrets.qqreadtimeheaderVal }}
+            qqreadheaderVal: ${{ secrets.QQREADHEADERVAL }}
+            qqreadtimeurlVal: ${{ secrets.QQREADTIMEURLVAL }}
+            qqreadtimeheaderVal: ${{ secrets.QQREADTIMEHEADERVAL }}
             PUSH_KEY: ${{ secrets.PUSH_KEY }}
             BARK_PUSH: ${{ secrets.BARK_PUSH }}
             BARK_SOUND: ${{ secrets.BARK_SOUND }}
