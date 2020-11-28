@@ -4,10 +4,10 @@ async function replaceWithSecrets(content, Secrets) {
     const replacements = [];
     await init_notify(Secrets, content, replacements);
         if (Secrets.COOKIE_QQYD) {
-            replacements.push({ key: "$.getdata(qqreadurlKey)", value: JSON.stringify(Secrets.QQREAD_COOKIE.split("\n")[0]) });
-            replacements.push({ key: "$.getdata(qqreadheaderKey)", value: JSON.stringify(Secrets.QQREAD_COOKIE.split("\n")[1]) });
-            replacements.push({ key: "$.getdata(qqreadtimeurlKey)", value: JSON.stringify(Secrets.QQREAD_COOKIE.split("\n")[2]) });
-            replacements.push({ key: "$.getdata(qqreadtimeheaderKey)", value: JSON.stringify(Secrets.QQREAD_COOKIE.split("\n")[3]) });
+            replacements.push({ key: "$.getdata(qqreadurlKey)", value: JSON.stringify(Secrets.QQREAD_COOKIE.split("\n")) });
+            replacements.push({ key: "$.getdata(qqreadheaderKey)", value: JSON.stringify(Secrets.QQREAD_COOKIE.split("\n")) });
+            replacements.push({ key: "$.getdata(qqreadtimeurlKey)", value: JSON.stringify(Secrets.QQREAD_COOKIE.split("\n")) });
+            replacements.push({ key: "$.getdata(qqreadtimeheaderKey)", value: JSON.stringify(Secrets.QQREAD_COOKIE.split("\n")) });
         }
         await downloader(content);//检查所需额外js
 
