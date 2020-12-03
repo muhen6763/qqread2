@@ -16,7 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     env:
-        COOKIE_QQYD: ${{ secrets.COOKIE_QQYD }}
+        COOKIE_QQYD1: ${{ secrets.COOKIE_QQYD1 }} 
+        COOKIE_QQYD2: ${{ secrets.COOKIE_QQYD2 }} 
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js 10.x
@@ -27,10 +28,18 @@ jobs:
         run: |
           npm install
           npm install got #tough-cookie
-      - name: ' 运行 【企鹅阅读】'
-        run: |
-          node qqyd.js
-        env:
+      - name: ' 运行 【企鹅阅读一】' 
+        if: env.COOKIE_QQYD1 
+        run: | 
+          node qqyd.js 
+        env:  
+          COOKIE_QQYD: ${{ secrets.COOKIE_QQYD1 }} 
+      - name: ' 运行 【企鹅阅读二】' 
+        if: env.COOKIE_QQYD2 
+        run: | 
+          node qqyd.js 
+        env:  
+          COOKIE_QQYD: ${{ secrets.COOKIE_QQYD2 }} 
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
           BARK_SOUND: ${{ secrets.BARK_SOUND }}
